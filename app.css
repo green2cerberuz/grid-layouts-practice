@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+  background-color: #ced4da;
+}
+
+#app {
+  margin: 1rem;
+  background-color: #ced4da;
+}
+
+.main-title {
+  margin-top: 1.25rem;
+  font-size: 1.5rem;
+}
+
+.main-section {
+  margin-top: 1.25rem;
+  width: 100wh;
+  padding-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+}
+
+.design-link {
+  display: block;
+  margin-top: 1.25rem;
+  text-decoration: none;
+}
+
+/* Some colors here to experiment with the page */
+/* 
+
+c1: 000000
+c2: 14213d
+c3: fca311
+c4: e5e5e5
+c5: ffffff
+
+*/
