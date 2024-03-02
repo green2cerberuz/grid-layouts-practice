@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         pattern1: resolve(__dirname, 'design/pattern1/index.html'),
+        pattern2: resolve(__dirname, 'design/pattern2/index.html'),
       },
     },
   },
