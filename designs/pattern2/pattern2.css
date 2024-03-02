@@ -1,0 +1,49 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+
+  gap: 10px;
+}
+
+.grid-box {
+  padding: 1rem;
+  height: 200px;
+  color: white;
+  background-color: #1b263b;
+  font-size: 20px;
+}
+
+/* Notice, in the html the markup is first A and then B
+   With grid properties we are able to change the markup as I want
+   The commented part is an alternative for the shorthand
+   */
+.a {
+  /* grid-column-start: 2;
+  grid-column-end: 3; */
+  grid-column: 2 / 3;
+}
+
+.b {
+  grid-colum: 1 / 2;
+  /* grid-column-start: 1;
+  grid-column-end: 2; */
+  /* grid-row-start: 1; */
+  grid-row: 1;
+}
+
+.d {
+  grid-area: 2 / 1 / 2 / 3;
+}
+
+.e {
+  grid-column: 3 / 4;
+  /* grid-area: 2 / 3 / 4 / 4; */
+  grid-row: 2 / span 2;
+  height: auto;
+}
+
+/* The span indicate how many blocks will it take the positioned element.
+  With the above example, the "e" block indicates basically that it will go 2 blocks from the second row (expand vertically )
+*/
+
+/* Line-based placement named lines with spans */
