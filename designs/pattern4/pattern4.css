@@ -1,0 +1,50 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: [col1-start] 200px [col2-start] 200px [col3-start] 200px [col4-start] 200px [col4-end] repeat(4, [col] 200px);
+  /* grid-template-rows: [row] auto [row] auto [row] auto [row];*/
+  /* equivalent to the one below */
+  grid-template-rows: repeat(4, [row] auto);
+  gap: 10px;
+}
+
+.grid-box {
+  padding: 1rem;
+  height: 200px;
+  color: white;
+  background-color: #1b263b;
+  font-size: 20px;
+}
+
+.a {
+  grid-column: col1-start / col4-start;
+}
+
+/* Notice that because I'm trying to overlap the b box to the a box, the normal frlow of the page is apply
+  and the b box is moved to the following row in the position that I specified.
+*/
+.b {
+  grid-column: col3-start / col4-end
+}
+
+.c {
+  /* equivalent to col1-start / col3-start */
+  grid-column: col1-start / span 2;
+  grid-row: row 4;
+}
+
+.i {
+  grid-column: col / span 3;
+}
+
+.j {
+  grid-row: row 4;
+  grid-column: col3-start / col 3;
+}
+
+.k {
+  grid-row: row 3;
+  grid-column: col2-start / col ;
+}
+
+/
+/* Line-based placement named lines with spans */
