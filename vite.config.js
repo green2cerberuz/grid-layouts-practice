@@ -11,6 +11,7 @@ export default defineConfig({
         pattern2: resolve(__dirname, 'design/pattern2/index.html'),
         pattern3: resolve(__dirname, 'design/pattern3/index.html'),
         pattern4: resolve(__dirname, 'design/pattern4/index.html'),
+        pattern5: resolve(__dirname, 'design/pattern5/index.html'),
       },
     },
   },
