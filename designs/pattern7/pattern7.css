@@ -1,0 +1,15 @@
+/* Grid with fr units */
+
+/* Using fr unit we made the grid responsive */
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 2fr repeat(2, 1fr) 100px;
+}
+/* Can have static size and dynamic size together */
+
+.grid-box {
+  height: 200px;
+  color: white;
+  background-color: #bf3131;
+}
