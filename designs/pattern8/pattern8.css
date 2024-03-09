@@ -1,0 +1,86 @@
+/* The goal here is to center the mobile layout,
+keep centering the table layout, and center the layout for desktop
+even if it grows */
+#app {
+  width: 100%;
+}
+
+.grid-container {
+  display: grid;
+  place-content: center;
+  justify-content: center
+  box-sizing: border-box;
+  grid-template-columns: repeat(4, auto);
+  grid-template-areas: 'header' 'sidebar' 'content' 'category' 'footer';
+  gap: 1rem;
+  margin: 2px auto;
+}
+
+.grid-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: 1px solid black;
+  background-color: #1b263b;
+  color: white;
+}
+
+.header {
+  grid-area: header;
+}
+
+.category {
+  grid-area: category;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.header,
+.footer {
+  background-color: #374151;
+}
+
+.category {
+  background-color: #b91c1c;
+  color: white;
+}
+
+/* Then we can define the layout with media queries */
+
+@media only screen and (min-width: 500px) {
+  .grid-container {
+    /* This will crete the first column as 20% of total width and the second will ocuppy wherever is left*/
+    grid-template-columns: 20% auto;
+    grid-template-areas:
+      'header   header'
+      'sidebar  content'
+      'category category'
+      'footer   footer';
+  }
+  /* Notice that we fill with the grid template areas, the 
+    first 20% in header with header too so we occupy 
+    everything on that part */
+}
+
+@media only screen and (min-width: 800px) {
+  .grid-container {
+    grid-template-columns: 20% auto 20%;
+    grid-template-areas:
+      'header   header header'
+      'sidebar  content category'
+      'footer   footer footer';
+    max-width: 1000px;
+  }
+}
