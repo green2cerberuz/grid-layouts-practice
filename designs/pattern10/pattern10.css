@@ -1,0 +1,28 @@
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 400px);
+  grid-template-rows: repeat(2, 400px);
+  gap: 10px;
+}
+
+.nested-grid {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.grid-box,
+.nested-box {
+  padding: 1rem;
+  color: white;
+  font-size: 20px;
+}
+
+.grid-box {
+  background-color: #1b263b;
+}
+
+.nested-box {
+  background-color: #575e71;
+}
