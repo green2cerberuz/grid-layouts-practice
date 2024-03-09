@@ -1,0 +1,46 @@
+/* Notice that even if we defined that grid-template-columns
+  should be 6, when changing the auto-flow layout to columns it
+  fills the rows requirement not the column one. This is because
+  we are telling the browser the the auto fill algorithm should be use in the
+  columns instead of the row. So now if take only the rows in the declaration and
+  fill the columns as it sees fit.
+*/
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+}
+
+.grid-box {
+  padding: 1rem;
+  color: white;
+  background-color: #1b263b;
+  font-size: 20px;
+}
+
+.grid-box:nth-child(even) {
+  background-color: #ccc;
+  color: #000;
+}
+
+/* the auto fill property will create the max amount of
+possible columns inside the width of the container with the specified size */
+.grid-container2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 10px;
+}
+
+.grid-box2 {
+  padding: 1rem;
+  color: white;
+  background-color: #ea580c;
+  font-size: 20px;
+}
+
+.grid-box2:nth-child(even) {
+  background-color: #7c2d12;
+  color: #000;
+}
