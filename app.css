@@ -33,10 +33,9 @@ body {
   position: relative;
 }
 
-
 .header {
   position: relative;
-  z-index: 10;
+  z-index: 50;
   height: 25vh;
   padding: 16px;
 }
@@ -51,7 +50,7 @@ body {
   z-index: -1;
   transform: rotate(-18deg);
   scale: 2;
-  clip-path: polygon(100% 0%, 100% 100%, 0% 0%); */
+  clip-path: polygon(100% 0%, 100% 100%, 0% 0%);
 }
 
 .main-title {
@@ -62,23 +61,32 @@ body {
 .main-description-text {
   &.description-text {
     font-size: 1rem;
+    padding: 8px;
+    margin-bottom: 4px;
   }
 }
 
 .main-section {
+  position: relative;
+  z-index: 50;
   margin-top: 1.25rem;
-  width: 100wh;
+  width: 100vw;
   padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content-center;
+  justify-content: center;
   align-items: center;
 }
 
+.project-card {
+  background-color: var(--card-background-color);
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
 
 .design-link {
   display: block;
-  margin-top: 1.25rem;
+  padding: 8px;
   text-decoration: none;
 }
 
