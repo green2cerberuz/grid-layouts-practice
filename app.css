@@ -1,31 +1,80 @@
+:root {
+  --main-title-color: #f05f5a;
+  --main-text-color: #263a46;
+  --shape-background-color: #eff0ea;
+  --card-background-color: #f9faf4;
+  --main-theme-color: #ffe263;
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
 * {
   box-sizing: border-box;
   font-size: 16px;
   margin: 0px;
   padding: 0px;
-  font-family: sans-serif;
-  background-color: #ced4da;
+  /* does not work here because I change the background on the div, the the p elements inside the div are set
+    to the defined background color too.
+  */
+  /* background-color: var(--main-theme-color); */
+}
+
+body {
+  background-color: var(--main-theme-color);
 }
 
 #app {
-  margin: 1rem;
-  background-color: #ced4da;
+  position: relative;
+}
+
+
+.header {
+  position: relative;
+  z-index: 10;
+  height: 25vh;
+  padding: 16px;
+}
+
+.header-shape-block {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: -10px;
+  left: 0;
+  background-color: var(--shape-background-color);
+  z-index: -1;
+  transform: rotate(-18deg);
+  scale: 2;
+  clip-path: polygon(100% 0%, 100% 100%, 0% 0%); */
 }
 
 .main-title {
-  margin-top: 1.25rem;
-  font-size: 1.5rem;
+  font-size: 3rem;
+  color: var(--main-title-color);
+}
+
+.main-description-text {
+  &.description-text {
+    font-size: 1rem;
+  }
 }
 
 .main-section {
   margin-top: 1.25rem;
   width: 100wh;
   padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content-center;
+  align-items: center;
 }
 
-.subtitle {
-  font-size: 1.25rem;
-}
 
 .design-link {
   display: block;
