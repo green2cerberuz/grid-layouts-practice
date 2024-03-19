@@ -59,7 +59,7 @@ body {
 }
 
 .main-description-text {
-  &.description-text {
+  & .description-text {
     font-size: 1rem;
     padding: 8px;
     margin-bottom: 4px;
@@ -72,22 +72,56 @@ body {
   margin-top: 1.25rem;
   width: 100vw;
   padding-bottom: 1rem;
+  padding-left: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
 }
 
 .project-card {
+  width: 80vw;
+  height: auto;
   background-color: var(--card-background-color);
   margin-bottom: 16px;
   border-radius: 8px;
 }
 
 .design-link {
-  display: block;
+  display: flex;
+  max-height: 100%;
   padding: 8px;
+  flex-direction: column;
+  justify-content: center;
   text-decoration: none;
+
+  & > p {
+    margin: 16px 0px 8px 8px;
+    color: var(--main-text-color);
+  }
+
+  & .title {
+    font-size: 2rem;
+    color: var(--main-title-color);
+  }
+
+  & .description {
+    font-size: 1rem;
+    /* specify the max width of the text to 45 characters */
+    max-width: 100%;
+  }
+
+  & .pattern-image > img {
+    /* background: url('./public/default-image.jpg') no-repeat center center; */
+    /* background-size: cover; */
+    width: 100%;
+    max-width: 95%;
+    display: block;
+    margin: 16px 2px 8px 8px;
+    /* height: 100%;
+    width: auto; */
+    /* height: 100%; */
+  }
 }
 
 /* Some colors here to experiment with the page */
