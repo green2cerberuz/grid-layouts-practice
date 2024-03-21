@@ -31,6 +31,11 @@ body {
 
 #app {
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  /* Overflow hidden is to prevent to show my clip path trinagle when scrolling */
+  overflow: hidden;
 }
 
 .header {
@@ -70,11 +75,9 @@ body {
   position: relative;
   z-index: 50;
   width: 100vw;
-  padding-bottom: 1rem;
   padding-left: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding-bottom: 1rem;
+  grid-column-start: 1;
 }
 
 .design-link {
@@ -112,7 +115,6 @@ body {
   & .pattern-image {
     aspect-ratio: 1 / 0.5;
     max-width: 95%;
-    /* display: block; */
     object-fit: fill;
     margin: 16px 2px 8px 8px;
   }
@@ -141,10 +143,6 @@ body {
     }
 
     & .pattern-image {
-      display: inherit;
-    }
-
-    & .pattern-image {
       /* display: grid; */
       grid-area: 1 / 1 / 4 / 1;
       /* object-fit: fill; */
@@ -152,13 +150,24 @@ body {
   }
 }
 
-/* Some colors here to experiment with the page */
-/* 
+@media screen and (min-width: 1024px) {
+  #app {
+    /* This is to move the aligned header to the center while the projects blocks moves
+      Investigate how to align the 2 items with respect one another
+    */
+    justify-items: center;
+  }
+  /* Change the display to flex to wrap items arounf the boxes if viewport was not enough
+    Should find a way to do this kind of trick with grids too.
+  */
+  .main-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
 
-c1: 000000
-c2: 14213d
-c3: fca311
-c4: e5e5e5
-c5: ffffff
-
-*/
+  .project-card {
+    max-width: 450px;
+  }
+}
