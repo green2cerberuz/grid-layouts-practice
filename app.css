@@ -109,7 +109,7 @@ body {
     max-width: 70ch;
   }
 
-  & .pattern-image > img {
+  & .pattern-image {
     aspect-ratio: 1 / 0.5;
     max-width: 95%;
     /* display: block; */
@@ -144,7 +144,7 @@ body {
       display: inherit;
     }
 
-    & .pattern-image > img {
+    & .pattern-image {
       /* display: grid; */
       grid-area: 1 / 1 / 4 / 1;
       /* object-fit: fill; */
