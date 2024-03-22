@@ -1,45 +1,206 @@
+:root {
+  --main-title-color: #f05f5a;
+  --main-text-color: #263a46;
+  --shape-background-color: #eff0ea;
+  --card-background-color: #f9faf4;
+  --main-theme-color: #ffe263;
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
 * {
   box-sizing: border-box;
   font-size: 16px;
   margin: 0px;
   padding: 0px;
-  font-family: sans-serif;
-  background-color: #ced4da;
+  /* does not work here because I change the background on the div, the the p elements inside the div are set
+    to the defined background color too.
+  */
+  /* background-color: var(--main-theme-color); */
+}
+
+body {
+  background-color: var(--main-theme-color);
 }
 
 #app {
-  margin: 1rem;
-  background-color: #ced4da;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  /* Overflow hidden is to prevent to show my clip path trinagle when scrolling */
+  overflow: hidden;
+}
+
+.header {
+  position: relative;
+  z-index: 50;
+  height: 25vh;
+  min-height: 250px;
+  padding: 16px;
+}
+
+.header-shape-block {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: -10px;
+  left: 0;
+  background-color: var(--shape-background-color);
+  z-index: -1;
+  transform: rotate(-18deg);
+  scale: 2;
+  clip-path: polygon(100% 0%, 100% 100%, 0% 0%);
 }
 
 .main-title {
-  margin-top: 1.25rem;
-  font-size: 1.5rem;
+  font-size: 3rem;
+  color: var(--main-title-color);
+}
+
+.main-description-text {
+  & .description-text {
+    font-size: 1rem;
+    padding: 8px;
+    margin-bottom: 4px;
+  }
 }
 
 .main-section {
-  margin-top: 1.25rem;
-  width: 100wh;
+  position: relative;
+  z-index: 50;
+  width: 100vw;
+  padding-left: 16px;
   padding-bottom: 1rem;
 }
 
-.subtitle {
-  font-size: 1.25rem;
-}
-
 .design-link {
-  display: block;
-  margin-top: 1.25rem;
   text-decoration: none;
 }
 
-/* Some colors here to experiment with the page */
-/* 
+.project-card {
+  width: 90vw;
+  display: grid;
+  gap: 2px;
+  padding: 8px;
+  grid-template-columns: 1fr;
+  height: auto;
+  background-color: var(--card-background-color);
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 9px -3px #8e878a;
 
-c1: 000000
-c2: 14213d
-c3: fca311
-c4: e5e5e5
-c5: ffffff
+  & > p {
+    margin: 16px 0px 8px 8px;
+    color: var(--main-text-color);
+  }
 
-*/
+  & .title {
+    font-size: 2rem;
+    color: var(--main-title-color);
+  }
+
+  & .description {
+    font-size: 1rem;
+    /* specify the max width of the text to 70 characters */
+    max-width: 70ch;
+  }
+
+  & .pattern-image {
+    aspect-ratio: 1 / 0.5;
+    max-width: 95%;
+    object-fit: fill;
+    margin: 16px 2px 8px 8px;
+  }
+}
+
+.project-card:hover {
+  box-shadow: 5px 5px 4px -3px #8e878a;
+}
+
+@media screen and (min-width: 720px) {
+  .project-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    justify-content: center;
+
+    & .title {
+      grid-area: 1 / 2 / 2 / 2;
+    }
+
+    & .description {
+      grid-area: 2 / 2 / 3 / 2;
+    }
+
+    & .date {
+      grid-area: 3 / 2 / 4 / 2;
+    }
+
+    & .pattern-image {
+      /* display: grid; */
+      grid-area: 1 / 1 / 4 / 1;
+      /* object-fit: fill; */
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #app {
+    /* This is to move the aligned header to the center while the projects blocks moves
+      Investigate how to align the 2 items with respect one another
+    */
+    justify-items: center;
+  }
+  /* Change the display to flex to wrap items arounf the boxes if viewport was not enough
+    Should find a way to do this kind of trick with grids too.
+  */
+  .main-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .project-card {
+    max-width: 450px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    & .description {
+      grid-area: 2 / 2 / 3 / 2;
+    }
+
+    & .pattern-image {
+      grid-area: 3 / 2 / 4 / 2;
+    }
+
+    & .date {
+      grid-area: 4 / 2 / 5 / 2;
+    }
+  }
+}
+
+@media screen and (max-height: 616px) {
+  .header-shape-block {
+    transform: rotate(-9deg);
+    top: 0px;
+    left: 0;
+    scale: 4;
+  }
+}
+
+@media screen and (max-height: 300px) {
+  .header-shape-block {
+    transform: rotate(-6deg);
+    top: 30px;
+    left: 0;
+    scale: 4;
+  }
+}
